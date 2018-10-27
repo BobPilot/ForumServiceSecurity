@@ -37,8 +37,7 @@ public class AccountServiceImpl implements AccountService {
 				.expDate(LocalDateTime.now().plusDays(accountConfiguration.getExpPeriod()))
 				.build();
 		userRepository.save(userAccount);
-		return new UserProfileDto(userRegDto.getId(),
-				userRegDto.getFirstName(), userRegDto.getLastName());
+		return new UserProfileDto(userAccount);
 	}
 
 	@Override
