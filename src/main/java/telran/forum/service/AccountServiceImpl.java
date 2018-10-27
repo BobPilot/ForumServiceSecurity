@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import telran.forum.configuration.AccountConfiguration;
@@ -60,7 +61,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	private UserAccount findUser(String id) {
-		return userRepository.findById(id).orElseThrow(UserExistException::new);
+		return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
 	}
 
 	private String checkData(String userData, String updData) {
